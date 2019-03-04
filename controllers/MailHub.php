@@ -33,7 +33,8 @@ define('SMTP_SECURE',           'ssl');                   // leave empty if no s
 *******************************************************************************/
 
 
-$default_template = file_get_contents("$root/views/email_templates/default.html");
+//$default_template = file_get_contents(dirname(__FILE__) . '/../views/email_templates/default.html');
+$default_template = file_get_contents('default.html');
 define ("HTML_DEFAULT_TEMPLATE", "$default_template");
 
 /*******************************************************************************
