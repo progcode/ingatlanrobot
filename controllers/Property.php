@@ -38,9 +38,8 @@ Class Property {
 
     /**
      * @param $link
-     * @param $args
      */
-    public function scrapSite($link, $args) {
+    public function scrapSite($link) {
         $html = file_get_contents($link);
         $parse = parse_url($link);
         $domain = $parse['host'];
@@ -69,7 +68,7 @@ Class Property {
                 foreach($property_row as $row){
                     $title = $row->nodeValue;
 
-                    if($args == 'ingatlan.jofogas.hu') {
+                    if($domain == 'ingatlan.jofogas.hu') {
                         $url = $row->getAttribute('href');
                     } else {
                         $url = 'https://ingatlan.com'.$row->getAttribute('href');
@@ -108,8 +107,8 @@ Class Property {
     /** Send notification mail */
     public function sendMail() {
         $sentTime = date('Y-m-d H:i');
-        $now = date('Y-m-d H:i:s');
-        $results = $this->db->get_results( "SELECT * FROM property WHERE synced = '$now'" );
+        $now = date('Y-m-d H');
+        $results = $this->db->get_results( "SELECT * FROM property WHERE synced LIKE '%$now%'" );
 
         if($results) {
             $template = 'Új ingatlanokat találtam a megadott keresési feltételek alapján! Az ingatlanok megtekintéséhez kattints ide: https://ingatlan.wpapi.ws/List.php';

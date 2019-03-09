@@ -44,7 +44,7 @@ try {
 
     foreach($links as $link) {
         echo "Scrapping link --------–>\n";
-        $property->scrapSite($link, 'jf');
+        $property->scrapSite($link);
     }
 
     echo "Sleep 5 seconds before send email --------–>\n";
