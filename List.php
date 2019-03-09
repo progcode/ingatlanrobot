@@ -8,17 +8,6 @@
 
 require('controllers/Property.php');
 $property = new Property();
-
-/**
- * Get site type from url
- *
- * @var $getSite
- *
- */
-$getSite = 'all';
-if($property->get('site')) {
-    $getSite = $property->get('site');
-}
 ?>
 
 <!doctype html>
@@ -57,6 +46,14 @@ if($property->get('site')) {
                 font-size: 3.5rem;
             }
         }
+
+        @media(max-width: 992px) {
+            .btn {
+                display: block;
+                margin-bottom: 10px;
+                width: 100%;
+            }
+        }
     </style>
 
 </head>
@@ -78,26 +75,52 @@ if($property->get('site')) {
             Friss ingatlanok <?php echo date('Y-m-d'); ?>
         </h1>
 
-        <a class="btn btn btn-primary" href="/List.php?site=all">Minden találat</a>
-        <a class="btn btn btn-danger" href="/List.php?site=icom">Ingatlan.com találatok</a>
-        <a class="btn btn btn-warning" href="/List.php?site=jf">Jófogás találatok</a>
+        <a class="btn btn btn-danger" href="javascript: void(0)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Ingatlan.com találatok</a>
+        <a class="btn btn btn-warning" href="javascript: void(0)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Jófogás találatok</a>
 
         <hr />
 
-        <?php if($property->listProperties($getSite)): ?>
-        <div class="list-group">
-            <?php foreach($property->listProperties($getSite) as $property): ?>
-                <a href="<?php echo $property['url']; ?>" class="list-group-item list-group-item-action" target="_blank" rel="noopener">
-                    <?php if($property['portal'] == 'ingatlan.com'): ?>
-                        <span class="badge badge-danger">icom</span>
-                    <?php else: ?>
-                        <span class="badge badge-warning">jofogas</span>
-                    <?php endif; ?>
+        <?php if($property->listProperties('all')): ?>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <span class="badge badge-danger">icom</span> - Ingatlan.com találatok
+                        </button>
+                    </h2>
+                </div>
 
-                    <?php echo $property['title']; ?>
-                </a>
-            <?php endforeach; ?>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <?php foreach($property->listProperties('icom') as $_property): ?>
+                            <a href="<?php echo $_property['url']; ?>" class="list-group-item list-group-item-action" target="_blank" rel="noopener">
+                                <?php echo $_property['title']; ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <span class="badge badge-warning">icom</span> - Jófogás találatok
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <?php foreach($property->listProperties('jf') as $_property): ?>
+                            <a href="<?php echo $_property['url']; ?>" class="list-group-item list-group-item-action" target="_blank" rel="noopener">
+                                <?php echo $_property['title']; ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <?php else: ?>
         <div class="alert alert-warning">Nem találtam a mai nap új ingatlanokat :(</div>
         <?php endif; ?>
