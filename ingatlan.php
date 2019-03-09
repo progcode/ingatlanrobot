@@ -4,6 +4,8 @@
  * User: kovac
  * Date: 2019. 02. 13.
  * Time: 19:14
+ *
+ * v0.2.1
  */
 
 error_reporting(0);
@@ -29,23 +31,21 @@ if($command == '--flush') {
     exit();
 }
 
+$links = array(
+    'https://ingatlan.jofogas.hu/pest/budakalasz+dunakeszi+piliscsaba+pilisvorosvar+pomaz+szentendre/haz?max_price=26000000&min_size=60&st=s',
+    'https://ingatlan.com/lista/elado+lakas+budapest+csak-kepes+budakalasz+dunakeszi+piliscsaba+pilisvorosvar+pomaz+szentendre+25-mFt-ig+60-m2-felett+iii-ker',
+    'https://ingatlan.com/szukites/elado+haz+csak-kepes+budakalasz+dunakeszi+piliscsaba+pilisvorosvar+pomaz+szentendre+26-mFt-ig+60-m2-felett',
+    'https://ingatlan.com/lista/elado+telek+pest-megye-buda-kornyeke+8-mFt-ig',
+    'https://ingatlan.com/lista/elado+haz+balatonszabadi+balatonvilagos+gardony+siofok+szantod+velence+25-mFt-ig',
+);
+
 try {
     echo "Start scrapping --------–>\n";
 
-    echo "Scrapping jofogas --------–>\n";
-    $property->scrapSite($property::siteJofogas, 'jf');
-
-    echo "Sleep 5 seconds before next scrapping --------–>\n";
-    sleep(5);
-
-    echo "Scrapping ingatlancom#1 --------–>\n";
-    $property->scrapSite($property::siteIngatlancom, 'icom');
-
-    echo "Sleep 5 seconds before next scrapping --------–>\n";
-    sleep(5);
-
-    echo "Scrapping ingatlancom#2 --------–>\n";
-    $property->scrapSite($property::siteIngatlancom2, 'icom');
+    foreach($links as $link) {
+        echo "Scrapping link --------–>\n";
+        $property->scrapSite($link, 'jf');
+    }
 
     echo "Sleep 5 seconds before send email --------–>\n";
     sleep(5);
