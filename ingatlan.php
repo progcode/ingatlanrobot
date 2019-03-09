@@ -37,6 +37,7 @@ $links = array(
     'https://ingatlan.com/szukites/elado+haz+csak-kepes+budakalasz+dunakeszi+piliscsaba+pilisvorosvar+pomaz+szentendre+26-mFt-ig+60-m2-felett',
     'https://ingatlan.com/lista/elado+telek+pest-megye-buda-kornyeke+8-mFt-ig',
     'https://ingatlan.com/lista/elado+haz+balatonszabadi+balatonvilagos+gardony+siofok+szantod+velence+25-mFt-ig',
+    'https://koltozzbe.hu/elado-csaladi_haz+ikerhaz+sorhaz+telek+nyaralo-budapest+pomaz+szentendre+dunakeszi+pilisvorosvar+piliscsaba?p2=25000000&order=2'
 );
 
 try {

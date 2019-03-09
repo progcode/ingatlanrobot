@@ -56,23 +56,41 @@ Class Property {
             libxml_clear_errors(); //remove errors for yucky html
 
             $property_xpath = new DOMXPath($property_doc);
-            // = $property_xpath->query('//a[contains(@class,"listing__link")]');
 
-            if($domain == 'ingatlan.jofogas.hu') {
-                $property_row = $property_xpath->query('//a[contains(@class,"subject")]');
-            } else {
-                $property_row = $property_xpath->query('//a[contains(@class,"listing__link")]');
+            switch ($domain)
+            {
+                case 'ingatlan.com':
+                    $property_row = $property_xpath->query('//a[contains(@class,"listing__link")]');
+                    break;
+                case 'ingatlan.jofogas.hu':
+                    $property_row = $property_xpath->query('//a[contains(@class,"subject")]');
+                    break;
+                case 'koltozzbe.hu':
+                    $property_row = $property_xpath->query('//div[contains(@class,"listing-parameters")]');
+                    break;
+                default:
+                    $property_row = $property_xpath->query('//a[contains(@class,"listing__link")]');
             }
 
             if($property_row->length > 0){
                 foreach($property_row as $row){
                     $title = $row->nodeValue;
 
-                    if($domain == 'ingatlan.jofogas.hu') {
-                        $url = $row->getAttribute('href');
-                    } else {
-                        $url = 'https://ingatlan.com'.$row->getAttribute('href');
+                    switch ($domain)
+                    {
+                        case 'ingatlan.com':
+                            $url = 'https://ingatlan.com'.$row->getAttribute('href');
+                            break;
+                        case 'ingatlan.jofogas.hu':
+                            $url = $row->getAttribute('href');
+                            break;
+                        case 'koltozzbe.hu':
+                            $url = 'https://koltozzbe.hu'.$row->getAttribute('href');
+                            break;
+                        default:
+                            $url = $row->getAttribute('href');
                     }
+
                     $hash = md5($row->getAttribute('href'));
 
                     /** @var $checkProperty */
@@ -147,6 +165,9 @@ Class Property {
                 break;
             case 'icom':
                 $portal = 'ingatlan.com';
+                break;
+            case 'koltozzbe':
+                $portal = 'koltozzbe.hu';
                 break;
             case 'jf':
                 $portal = 'ingatlan.jofogas.hu';

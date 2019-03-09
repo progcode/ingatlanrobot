@@ -77,6 +77,7 @@ $property = new Property();
 
         <a class="btn btn btn-danger" href="javascript: void(0)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Ingatlan.com találatok</a>
         <a class="btn btn btn-warning" href="javascript: void(0)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Jófogás találatok</a>
+        <a class="btn btn btn-primary" href="javascript: void(0)" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Költözzbe találatok</a>
 
         <hr />
 
@@ -112,6 +113,24 @@ $property = new Property();
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
                         <?php foreach($property->listProperties('jf') as $_property): ?>
+                            <a href="<?php echo $_property['url']; ?>" class="list-group-item list-group-item-action" target="_blank" rel="noopener">
+                                <?php echo $_property['title']; ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <span class="badge badge-primary">koltozzbe</span> - Költözzbe találatok
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <?php foreach($property->listProperties('koltozzbe') as $_property): ?>
                             <a href="<?php echo $_property['url']; ?>" class="list-group-item list-group-item-action" target="_blank" rel="noopener">
                                 <?php echo $_property['title']; ?>
                             </a>
