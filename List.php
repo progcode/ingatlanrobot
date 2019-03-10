@@ -75,14 +75,24 @@ $property = new Property();
             Friss ingatlanok <?php echo date('Y-m-d'); ?>
         </h1>
 
-        <a class="btn btn btn-danger" href="javascript: void(0)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Ingatlan.com találatok</a>
-        <a class="btn btn btn-warning" href="javascript: void(0)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Jófogás találatok</a>
-        <a class="btn btn btn-primary" href="javascript: void(0)" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Költözzbe találatok</a>
+        <?php if($property->listProperties('icom')): ?>
+            <a class="btn btn btn-danger" href="javascript: void(0)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Ingatlan.com találatok</a>
+        <?php endif; ?>
+
+        <?php if($property->listProperties('jf')): ?>
+            <a class="btn btn btn-warning" href="javascript: void(0)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Jófogás találatok</a>
+        <?php endif; ?>
+
+        <?php if($property->listProperties('koltozzbe')): ?>
+            <a class="btn btn btn-primary" href="javascript: void(0)" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Költözzbe találatok</a>
+        <?php endif; ?>
 
         <hr />
 
         <?php if($property->listProperties('all')): ?>
         <div class="accordion" id="accordionExample">
+
+            <?php if($property->listProperties('icom')): ?>
             <div class="card">
                 <div class="card-header" id="headingOne">
                     <h2 class="mb-0">
@@ -102,6 +112,9 @@ $property = new Property();
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
+
+            <?php if($property->listProperties('jf')): ?>
             <div class="card">
                 <div class="card-header" id="headingTwo">
                     <h2 class="mb-0">
@@ -120,6 +133,9 @@ $property = new Property();
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
+
+            <?php if($property->listProperties('koltozzbe')): ?>
             <div class="card">
                 <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
@@ -138,6 +154,8 @@ $property = new Property();
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
+
         </div>
 
         <?php else: ?>
@@ -145,7 +163,7 @@ $property = new Property();
         <?php endif; ?>
 
         <hr />
-        <p>IngatlanRobot v0.2.1</p>
+        <p>IngatlanRobot v0.2.2</p>
     </div>
 
 </main><!-- /.container -->
