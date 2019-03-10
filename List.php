@@ -119,7 +119,7 @@ $property = new Property();
                 <div class="card-header" id="headingTwo">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <span class="badge badge-warning">icom</span> - Jófogás találatok
+                            <span class="badge badge-warning">jófogás</span> - Jófogás találatok
                         </button>
                     </h2>
                 </div>

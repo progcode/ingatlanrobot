@@ -18,12 +18,11 @@ $root = $_SERVER['DOCUMENT_ROOT'];
 *                                                                              *
 *******************************************************************************/
 
-define('SMTP_HOST',              'ssl://smtp.gmail.com');
-define('SMTP_USERNAME',     'progwebhu@gmail.com');
-define('SMTP_PASSWORD',     'kirk045pop482');
-define('SMTP_PORT',               '465');                // 25 = no secure connection, 465 = ssl
-define('SMTP_SECURE',           'ssl');                   // leave empty if no secure connection, otherwise use 'ssl'
-
+define('SMTP_HOST',     'smtp.sendgrid.net');
+define('SMTP_USERNAME', 'apikey');
+define('SMTP_PASSWORD', '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');
+define('SMTP_PORT',     '587');                // 25 = no secure connection, 465 = ssl
+define('SMTP_SECURE',   'tls');                   // leave empty if no secure connection, otherwise use 'ssl'
 
 
 /*******************************************************************************
@@ -33,8 +32,8 @@ define('SMTP_SECURE',           'ssl');                   // leave empty if no s
 *******************************************************************************/
 
 
-//$default_template = file_get_contents(dirname(__FILE__) . '/../views/email_templates/default.html');
-$default_template = file_get_contents('default.html');
+$default_template = file_get_contents(dirname(__FILE__) . '/../views/email_templates/default.html');
+//$default_template = file_get_contents('default.html');
 define ("HTML_DEFAULT_TEMPLATE", "$default_template");
 
 /*******************************************************************************

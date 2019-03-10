@@ -5,7 +5,7 @@
  * Date: 2019. 02. 13.
  * Time: 19:14
  *
- * v0.2.1
+ * v0.2.2
  */
 
 error_reporting(0);

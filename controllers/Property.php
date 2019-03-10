@@ -5,7 +5,7 @@
  * Date: 2019. 03. 01.
  * Time: 19:30
  *
- * v0.2.1
+ * v0.2.2
  */
 
 require('DbController.php');
@@ -126,16 +126,25 @@ Class Property {
     public function sendMail() {
         $sentTime = date('Y-m-d H:i');
         $now = date('Y-m-d H');
-        $results = $this->db->get_results( "SELECT * FROM property WHERE synced LIKE '%$now%'" );
+
+        /**
+         * Correct server time with +1 hour
+         * @var $serverTime
+         *
+         */
+        $serverTime = date('Y-m-d H',strtotime('+1 hour',strtotime($now)));
+        $results = $this->db->get_results( "SELECT * FROM property WHERE synced LIKE '%$serverTime%'" );
 
         if($results) {
-            $template = 'Új ingatlanokat találtam a megadott keresési feltételek alapján! Az ingatlanok megtekintéséhez kattints ide: https://ingatlan.wpapi.ws/List.php';
-
-            $this->mh->setBody($template);
+            $this->mh->setBody(HTML_DEFAULT_TEMPLATE);
             $this->mh->setSubject("IngatlanRobot - Új ingatlanok ($sentTime)!");
             $this->mh->setFrom("ingatlanrobot@ingatlanrobot.ai", "IngatlanRobot");
             $this->mh->setTo('kovacsdanielakos@gmail.com');
             $this->mh->setCC('v.meryen@gmail.com');
+
+            $this->mh->replacePlaceholders( array(
+                "links" => "https://ingatlan.wpapi.ws/List.php"
+            ));
 
             $this->mh->sendMail();
 
