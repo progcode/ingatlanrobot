@@ -133,7 +133,7 @@ Class Property {
          *
          */
         $serverTime = date('Y-m-d H',strtotime('+1 hour',strtotime($now)));
-        $results = $this->db->get_results( "SELECT * FROM property WHERE synced LIKE '%$serverTime%'" );
+        $results = $this->db->get_results( "SELECT * FROM property WHERE synced LIKE '%$now%'" );
 
         if($results) {
             $this->mh->setBody(HTML_DEFAULT_TEMPLATE);
