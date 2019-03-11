@@ -10,6 +10,15 @@
 *				mail texts at one place and an easy way to send them.				*
 ************************************************************************************/
 
+/**
+ * Include Dotenv library to pull config options from .env file.
+ */
+if(file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
+    $dotenv = Dotenv\Dotenv::create(__DIR__, '/../env/.env');
+    $dotenv->load();
+}
+
 $root = $_SERVER['DOCUMENT_ROOT'];
 
 /*******************************************************************************
@@ -18,11 +27,11 @@ $root = $_SERVER['DOCUMENT_ROOT'];
 *                                                                              *
 *******************************************************************************/
 
-define('SMTP_HOST',     'smtp.sendgrid.net');
-define('SMTP_USERNAME', 'apikey');
-define('SMTP_PASSWORD', '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');
-define('SMTP_PORT',     '587');                // 25 = no secure connection, 465 = ssl
-define('SMTP_SECURE',   'tls');                   // leave empty if no secure connection, otherwise use 'ssl'
+define('SMTP_HOST',     getenv('SMTP_HOST'));
+define('SMTP_USERNAME', getenv('SMTP_USER'));
+define('SMTP_PASSWORD', getenv('SMTP_PASS'));
+define('SMTP_PORT',     getenv('SMTP_PORT'));                // 25 = no secure connection, 465 = ssl
+define('SMTP_SECURE',   getenv('SMTP_SEC'));                   // leave empty if no secure connection, otherwise use 'ssl'
 
 
 /*******************************************************************************

@@ -1,19 +1,34 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: kovac
- * Date: 2019. 02. 13.
- * Time: 19:14
+ * IngatlanRobot
  *
- * v0.2.2
+ * PHP Version 7
+ *
+ * @category  IngatlanRobot
+ * @package   Iconocoders
+ * @author    Iconocoders <support@icoders.co>
+ * @copyright 2017-2019 Iconocoders
+ * @license   Apache License 2.0
+ * @link      http://iconocoders.com
  */
-
-error_reporting(0);
-ini_set('display_errors', 0);
 
 if(PHP_SAPI !== 'cli' || isset($_SERVER['HTTP_USER_AGENT'])):
     die('Please run only from cli');
 endif;
+
+/**
+ * Include Dotenv library to pull config options from .env file.
+ */
+if(file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
+    $dotenv = Dotenv\Dotenv::create(__DIR__, '/env/.env');
+    $dotenv->load();
+}
+
+if(getenv('APP_DEBUG') == 'false') {
+    error_reporting(0);
+    ini_set('display_errors', 0);
+}
 
 require('controllers/Property.php');
 $property = new Property();
@@ -58,7 +73,7 @@ try {
 
 } catch (Exception $e) {
     echo 'Script error: ' . $e->getMessage();
-    exit(1);
+    exit();
 }
 
 echo "Shutdown robot --------–>\n";

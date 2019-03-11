@@ -1,9 +1,15 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: kovac
- * Date: 2019. 03. 01.
- * Time: 20:33
+ * IngatlanRobot
+ *
+ * PHP Version 7
+ *
+ * @category  IngatlanRobot
+ * @package   Iconocoders
+ * @author    Iconocoders <support@icoders.co>
+ * @copyright 2017-2019 Iconocoders
+ * @license   Apache License 2.0
+ * @link      http://iconocoders.com
  */
 
 require('controllers/Property.php');
@@ -17,7 +23,7 @@ $property = new Property();
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <title>IngatlanRobot v0.1</title>
+    <title>IngatlanRobot v0.2.3</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css?v=1" rel="stylesheet">
@@ -163,7 +169,7 @@ $property = new Property();
         <?php endif; ?>
 
         <hr />
-        <p>IngatlanRobot v0.2.2</p>
+        <p>IngatlanRobot v0.2.3</p>
     </div>
 
 </main><!-- /.container -->

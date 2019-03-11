@@ -1,12 +1,25 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: kovac
- * Date: 2019. 03. 01.
- * Time: 19:30
+ * IngatlanRobot
  *
- * v0.2.2
+ * PHP Version 7
+ *
+ * @category  IngatlanRobot
+ * @package   Iconocoders
+ * @author    Iconocoders <support@icoders.co>
+ * @copyright 2017-2019 Iconocoders
+ * @license   Apache License 2.0
+ * @link      http://iconocoders.com
  */
+
+/**
+ * Include Dotenv library to pull config options from .env file.
+ */
+if(file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
+    $dotenv = Dotenv\Dotenv::create(__DIR__, '/../env/.env');
+    $dotenv->load();
+}
 
 require('DbController.php');
 require('MailHub.php');
@@ -18,7 +31,7 @@ Class Property {
      */
     public function __construct()
     {
-        $this->db = new DbController('admin_ingatlan', 'admin_ingatlan', 'hC9PpKQzzN');
+        $this->db = new DbController(getenv('DB_USERNAME'), getenv('DB_DATABASE'), getenv('DB_PASSWORD'));
         $this->mh = new MailHub();
     }
 
@@ -127,23 +140,17 @@ Class Property {
         $sentTime = date('Y-m-d H:i');
         $now = date('Y-m-d H');
 
-        /**
-         * Correct server time with +1 hour
-         * @var $serverTime
-         *
-         */
-        $serverTime = date('Y-m-d H',strtotime('+1 hour',strtotime($now)));
         $results = $this->db->get_results( "SELECT * FROM property WHERE synced LIKE '%$now%'" );
 
         if($results) {
             $this->mh->setBody(HTML_DEFAULT_TEMPLATE);
             $this->mh->setSubject("IngatlanRobot - Új ingatlanok ($sentTime)!");
             $this->mh->setFrom("ingatlanrobot@ingatlanrobot.ai", "IngatlanRobot");
-            $this->mh->setTo('kovacsdanielakos@gmail.com');
-            $this->mh->setCC('v.meryen@gmail.com');
+            $this->mh->setTo(getenv('USER_EMAIL'));
+            $this->mh->setCC(getenv('USER_EMAIL_CC'));
 
             $this->mh->replacePlaceholders( array(
-                "links" => "https://ingatlan.wpapi.ws/List.php"
+                "links" => getenv('APP_URL')."/List.php"
             ));
 
             $this->mh->sendMail();
