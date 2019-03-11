@@ -47,7 +47,7 @@ if($command == '--flush') {
 }
 
 try {
-    
+
     $links = array(
         'https://ingatlan.jofogas.hu/pest/budakalasz+dunakeszi+piliscsaba+pilisvorosvar+pomaz+szentendre/haz?max_price=26000000&min_size=60&st=s',
         'https://ingatlan.com/lista/elado+lakas+budapest+csak-kepes+budakalasz+dunakeszi+piliscsaba+pilisvorosvar+pomaz+szentendre+25-mFt-ig+60-m2-felett+iii-ker',
