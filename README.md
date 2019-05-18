@@ -5,6 +5,11 @@ ingatlan hirdetéseket, valamint emailben értesítést küld. A projekt célja,
 ingatlan keresés esetén ne kelljen egyesével átnezni a hirető portálokat, valamint
 időben értesülhessünk a számunkra megfelelő új hirdetésekről
 
+> **v.0.3.0:**
+>
+> - Új neve van a robotnak: Mikrobi
+> - Env fix, email fixek
+
 > **v.0.2.3:**
 >
 > - Publikus stabil verzió
