@@ -15,8 +15,8 @@
 /**
  * Include Dotenv library to pull config options from .env file.
  */
-if(file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require_once __DIR__ . '/vendor/autoload.php';
+if(file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    require_once __DIR__ . '/../vendor/autoload.php';
     $dotenv = Dotenv\Dotenv::create(__DIR__, '/../env/.env');
     $dotenv->load();
 }
@@ -144,8 +144,8 @@ Class Property {
 
         if($results) {
             $this->mh->setBody(HTML_DEFAULT_TEMPLATE);
-            $this->mh->setSubject("IngatlanRobot - Új ingatlanok ($sentTime)!");
-            $this->mh->setFrom("ingatlanrobot@ingatlanrobot.ai", "IngatlanRobot");
+            $this->mh->setSubject("Mikrobi - Új ingatlanok ($sentTime)!");
+            $this->mh->setFrom("ingatlanrobot@ingatlanrobot.ai", "Mikrobi");
             $this->mh->setTo(getenv('USER_EMAIL'));
             $this->mh->setCC(getenv('USER_EMAIL_CC'));
 

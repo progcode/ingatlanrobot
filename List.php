@@ -23,7 +23,7 @@ $property = new Property();
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <title>IngatlanRobot v0.2.3</title>
+    <title>Mikrobi v0.3.0</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css?v=1" rel="stylesheet">
@@ -66,7 +66,7 @@ $property = new Property();
 
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">IngatlanRobot</a>
+    <a class="navbar-brand" href="#">Mikrobi</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -169,7 +169,7 @@ $property = new Property();
         <?php endif; ?>
 
         <hr />
-        <p>IngatlanRobot v0.2.3</p>
+        <p>Mikrobi v0.3.0</p>
     </div>
 
 </main><!-- /.container -->
