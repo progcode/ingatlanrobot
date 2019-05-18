@@ -144,8 +144,8 @@ Class Property {
 
         if($results) {
             $this->mh->setBody(HTML_DEFAULT_TEMPLATE);
-            $this->mh->setSubject("IngatlanRobot - Új ingatlanok ($sentTime)!");
-            $this->mh->setFrom("ingatlanrobot@ingatlanrobot.ai", "IngatlanRobot");
+            $this->mh->setSubject("Mikrobi - Új ingatlanok ($sentTime)!");
+            $this->mh->setFrom("ingatlanrobot@ingatlanrobot.ai", "Mikrobi");
             $this->mh->setTo(getenv('USER_EMAIL'));
             $this->mh->setCC(getenv('USER_EMAIL_CC'));
 
