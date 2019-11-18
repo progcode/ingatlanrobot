@@ -169,7 +169,7 @@ $property = new Property();
         <?php endif; ?>
 
         <hr />
-        <p>Mikrobi v0.3.0</p>
+        <p>Mikrobi v0.3.2</p>
     </div>
 
 </main><!-- /.container -->
