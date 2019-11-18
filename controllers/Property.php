@@ -79,7 +79,7 @@ Class Property {
                     $property_row = $property_xpath->query('//a[contains(@class,"subject")]');
                     break;
                 case 'koltozzbe.hu':
-                    $property_row = $property_xpath->query('//div[contains(@class,"listing-parameters")]');
+                    $property_row = $property_xpath->query('//a[contains(@class,"listing-link")]');
                     break;
                 default:
                     $property_row = $property_xpath->query('//a[contains(@class,"listing__link")]');
@@ -122,7 +122,7 @@ Class Property {
                     if(!$checkProperty && !$skip) {
                         $property_data = array(
                             'portal' => $domain,
-                            'title' => $title,
+                            'title' => $row->getAttribute('title'),
                             'url' => $url,
                             'hash' => $hash,
                             'synced' => date('Y-m-d H:i:s')

@@ -49,12 +49,11 @@ if($command == '--flush') {
 try {
 
     $links = array(
-        'https://ingatlan.jofogas.hu/pest/budakalasz+dunakeszi+piliscsaba+pilisvorosvar+pomaz+szentendre/haz?max_price=26000000&min_size=60&st=s',
-        'https://ingatlan.com/lista/elado+lakas+budapest+csak-kepes+budakalasz+dunakeszi+piliscsaba+pilisvorosvar+pomaz+szentendre+25-mFt-ig+60-m2-felett+iii-ker',
-        'https://ingatlan.com/szukites/elado+haz+csak-kepes+budakalasz+dunakeszi+piliscsaba+pilisvorosvar+pomaz+szentendre+26-mFt-ig+60-m2-felett',
-        'https://ingatlan.com/lista/elado+telek+pest-megye-buda-kornyeke+8-mFt-ig',
-        'https://ingatlan.com/lista/elado+haz+alsoors+balatonalmadi+balatonfoldvar+balatonfured+balatonfuzfo+balatonkenese+balatonszabadi+balatonvilagos+csopak+felsoors+siofok+szantod+zamardi+orvenyes+balatonakarattya+25-mFt-ig',
-        'https://koltozzbe.hu/elado-csaladi_haz+ikerhaz+sorhaz+telek+nyaralo-budapest+pomaz+szentendre+dunakeszi+pilisvorosvar+piliscsaba?p2=25000000&order=2'
+        'https://ingatlan.com/lista/elado+haz+ar-szerint-csokkeno+alsoors+balatonalmadi+balatonfoldvar+balatonfured+balatonfuzfo+balatonkenese+balatonszabadi+balatonvilagos+csopak+felsoors+siofok+szantod+zamardi+orvenyes+balatonakarattya+25-mFt-ig',
+        'https://ingatlan.com/lista/elado+telek+pest-megye-buda-kornyeke+9-mFt-ig+lakoovezeti-telek',
+        'https://ingatlan.com/lista/elado+haz+budapest+pest-megye+osszkomfortos+csak-kepes+nem-berleti-jog+30-mFt-ig+81-m2-felett',
+        'https://koltozzbe.hu/elado-teglalakas+csaladi_haz+ikerhaz+sorhaz+telek+nyaralo-budapest+dunakeszi+szentendre+pomaz+vac+erdokertes+veresegyhaz+pilisvorosvar+piliscsaba?p2=32000000&a1=70&order=2',
+        'https://koltozzbe.hu/elado-teglalakas+csaladi_haz+ikerhaz+sorhaz+telek+nyaralo-siofok+balatonfokajar?p2=25000000&order=2'
     );
 
     echo "Start scrapping --------–>\n";
