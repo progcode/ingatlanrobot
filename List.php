@@ -133,7 +133,7 @@ $property = new Property();
                     <div class="card-body">
                         <?php foreach($property->listProperties('jf') as $_property): ?>
                             <a href="<?php echo $_property['url']; ?>" class="list-group-item list-group-item-action" target="_blank" rel="noopener">
-                                <?php echo $_property['title']; ?>
+                                <?php echo $_property['url']; ?>
                             </a>
                         <?php endforeach; ?>
                     </div>
@@ -154,7 +154,7 @@ $property = new Property();
                     <div class="card-body">
                         <?php foreach($property->listProperties('koltozzbe') as $_property): ?>
                             <a href="<?php echo $_property['url']; ?>" class="list-group-item list-group-item-action" target="_blank" rel="noopener">
-                                <?php echo $_property['title']; ?>
+                                <?php echo $_property['url']; ?>
                             </a>
                         <?php endforeach; ?>
                     </div>
