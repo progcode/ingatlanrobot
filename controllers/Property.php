@@ -122,7 +122,7 @@ Class Property {
                     if(!$checkProperty && !$skip) {
                         $property_data = array(
                             'portal' => $domain,
-                            'title' => $row->getAttribute('title'),
+                            'title' => 'ingatlan',
                             'url' => $url,
                             'hash' => $hash,
                             'synced' => date('Y-m-d H:i:s')
