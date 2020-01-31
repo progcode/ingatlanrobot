@@ -104,7 +104,7 @@ Class Property {
                             $url = $row->getAttribute('href');
                     }
 
-                    $hash = md5($row->getAttribute('href'));
+                    $hash = md5($url);
 
                     /** @var $checkProperty */
                     $checkProperty = $this->db->get_results( "SELECT * FROM property WHERE hash = '$hash'" );
