@@ -48,8 +48,8 @@ if($command == '--flush') {
 
 try {
     $links = array(
-        'https://ingatlan.com/lista/elado+haz+balatonakali+balatonfokajar+balatonszabadi+balatonvilagos+pusztaszemes+siojut+28-mFt-ig+70-m2-felett+ar-szerint-csokkeno',
-        'https://ingatlan.com/szukites/elado+haz+ar-szerint-csokkeno+csomad+veresegyhaz+vac+28-mFt-ig+70-m2-felett',
+        'https://ingatlan.com/lista/elado+haz+csak-kepes+alsoors+balatonalmadi+balatonfuzfo+balatonkenese+balatonvilagos+csopak+felsoors+balatonakarattya+28-mFt-ig+70-m2-felett',
+        'https://ingatlan.com/lista/elado+haz+csak-kepes+balatonakali+balatonfokajar+balatonvilagos+pusztaszemes+siofok+28-mFt-ig+70-m2-felett+ar-szerint-csokkeno',
         'https://ingatlan.com/lista/elado+haz+csaladi-haz+ikerhaz+sorhaz+pest-megye+uj-epitesu+csak-kepes+39-mFt-ig+80-m2-felett+ar-szerint-csokkeno',
         'https://ingatlan.com/lista/elado+telek+pest-megye-buda-kornyeke+9-mFt-ig+lakoovezeti-telek',
         'https://koltozzbe.hu/elado-teglalakas+csaladi_haz+ikerhaz+sorhaz+telek+nyaralo-budapest+dunakeszi+szentendre+pomaz+vac+erdokertes+veresegyhaz+pilisvorosvar+piliscsaba?p2=32000000&a1=70&order=2',
